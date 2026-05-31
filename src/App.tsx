@@ -111,7 +111,7 @@ function Features() {
 const STEPS = [
   { n: '01', title: 'Install both apps', desc: 'Download MacKeymapper on your Mac and iPhone. Both apps live on your local Wi-Fi network.' },
   { n: '02', title: 'Pair with a PIN', desc: 'A 4-digit PIN shows in the Mac menu bar. Enter it once on your iPhone.' },
-  { n: '03', title: 'Choose your apps', desc: 'Pick which Mac apps appear on your iPhone. Drag to reorder. Changes sync instantly.' },
+  { n: '03', title: 'Choose your apps', desc: 'In the Mac app Settings → Apps, add the apps you want on your iPhone. Tap the refresh button on iPhone to load the list.' },
   { n: '04', title: 'Tap to launch', desc: 'Open MacKeymapper on your iPhone and tap any icon. Done.' },
 ]
 
