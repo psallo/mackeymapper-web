@@ -190,7 +190,7 @@ function Footer() {
           <a href={MAC_DOWNLOAD_URL}>GitHub</a>
           <a href="mailto:treasure0613@gmail.com">Support</a>
         </div>
-        <span className="footer-copy">© 2025 MacKeymapper. All rights reserved.</span>
+        <span className="footer-copy">© 2026 MacKeymapper. All rights reserved.</span>
       </div>
     </footer>
   )
