@@ -56,12 +56,12 @@ function Hero() {
         <div className={`hero-copy fade-up${visible ? ' in' : ''}`} style={{ transitionDelay: '0ms' }}>
           <div className="eyebrow">Free · No account needed · Local Wi-Fi only</div>
           <h1>
-            Launch any Mac app<br />
-            <span className="gradient-text">from your iPhone.</span>
+            Switch Mac apps<br />
+            <span className="gradient-text">in one tap.</span>
           </h1>
           <p className="hero-sub">
-            MacKeymapper turns your iPhone into a wireless app launcher for your Mac.
-            One tap — the app opens instantly.
+            Stop hunting through Cmd+Tab or the Dock.
+            MacKeymapper puts your top Mac apps on your iPhone — always visible, always instant.
           </p>
           <div className="hero-btns">
             <a href={MAC_DOWNLOAD_URL} className="btn btn-primary">
@@ -80,9 +80,9 @@ function Hero() {
 
 /* ── Features ── */
 const FEATURES = [
-  { icon: '⚡', title: 'One-tap launch', desc: 'Tap any icon on your iPhone. The app opens on your Mac immediately — no delays.' },
-  { icon: '📡', title: 'Auto-discovery', desc: 'Bonjour finds your Mac automatically. No IP addresses, no router config.' },
-  { icon: '🔐', title: 'Secure pairing', desc: 'PIN-based pairing and a device allowlist keep strangers off your Mac.' },
+  { icon: '⚡', title: 'Instant switch', desc: 'Tap an icon on your iPhone and the app is already in front of you on your Mac. No list, no scroll, no search.' },
+  { icon: '📱', title: 'Always in reach', desc: 'Your iPhone is always on your desk. Your top Mac apps are always one glance away — no need to look at your Mac.' },
+  { icon: '🔐', title: 'Secure pairing', desc: 'PIN-based pairing and a device allowlist keep your Mac private.' },
   { icon: '🚫', title: 'No cloud, no account', desc: 'Runs entirely on your local network. Nothing leaves your home.' },
 ]
 
@@ -102,6 +102,61 @@ function Features() {
             <p>{f.desc}</p>
           </div>
         ))}
+      </div>
+    </section>
+  )
+}
+
+/* ── Multitasking ── */
+const USE_CASES = [
+  { icon: '🎬', role: 'Video Editors', desc: 'Jump between your timeline, reference footage, and music library without breaking rhythm.' },
+  { icon: '💻', role: 'Developers', desc: 'Switch from your code editor to the browser, terminal, or docs — without touching the keyboard.' },
+  { icon: '🎨', role: 'Designers', desc: 'Toggle between your design tool, client chat, and inspiration board in an instant.' },
+  { icon: '📊', role: 'Content Creators', desc: 'Move between recording, editing, and publishing tools at the speed you think.' },
+]
+
+function Multitasking() {
+  const { ref, inView } = useInView()
+  return (
+    <section className="multitasking" ref={ref}>
+      <div className="multitasking-inner">
+        <div className={`section-header fade-up${inView ? ' in' : ''}`} style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto 56px' }}>
+          <div className="eyebrow">Built for multitaskers</div>
+          <h2>Cmd+Tab is already outdated.</h2>
+          <p className="mt-desc">
+            Every time you press Cmd+Tab, you pause to scan a list. Every Dock click is a micro-interruption.
+            MacKeymapper removes the friction — your most-used apps live on your iPhone screen,
+            instantly recognizable, always one tap away.
+          </p>
+        </div>
+        <div className="use-case-grid">
+          {USE_CASES.map((u, i) => (
+            <div key={u.role} className={`use-case-card fade-up${inView ? ' in' : ''}`} style={{ transitionDelay: `${i * 70}ms` }}>
+              <span className="use-case-icon">{u.icon}</span>
+              <h3>{u.role}</h3>
+              <p>{u.desc}</p>
+            </div>
+          ))}
+        </div>
+        <div className={`mt-compare fade-up${inView ? ' in' : ''}`} style={{ transitionDelay: '300ms' }}>
+          <div className="mt-before">
+            <div className="mt-label">Without MacKeymapper</div>
+            <div className="mt-steps-list">
+              <span>⌘ Press Cmd+Tab</span>
+              <span>👀 Scan the app switcher</span>
+              <span>🖱 Click or press again</span>
+              <span>⏳ Break your flow</span>
+            </div>
+          </div>
+          <div className="mt-arrow">→</div>
+          <div className="mt-after">
+            <div className="mt-label accent">With MacKeymapper</div>
+            <div className="mt-steps-list accent">
+              <span>👆 Tap on iPhone</span>
+              <span>✅ App switches instantly</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )
@@ -254,6 +309,7 @@ export default function App() {
       <main>
         <Hero />
         <Features />
+        <Multitasking />
         <HotspotTip />
         <HowItWorks />
         <Download />
