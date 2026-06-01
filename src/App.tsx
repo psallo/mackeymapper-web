@@ -107,6 +107,47 @@ function Features() {
   )
 }
 
+/* ── Hotspot Tip ── */
+function HotspotTip() {
+  const { ref, inView } = useInView()
+  return (
+    <section className="hotspot-section" ref={ref}>
+      <div className={`hotspot-card fade-up${inView ? ' in' : ''}`}>
+        <div className="hotspot-icon">📡</div>
+        <div className="hotspot-body">
+          <h3>No shared Wi-Fi? Use iPhone as a hotspot.</h3>
+          <p>
+            MacKeymapper requires both devices on the same network. On public Wi-Fi (cafés,
+            airports, hotels), networks often block device-to-device traffic — so the connection
+            won't work.
+          </p>
+          <div className="hotspot-steps">
+            <div className="hotspot-step">
+              <span className="hs-num">1</span>
+              <span>Connect your iPhone to your Mac with a USB cable.</span>
+            </div>
+            <div className="hotspot-step">
+              <span className="hs-num">2</span>
+              <span>On iPhone, go to <strong>Settings → Personal Hotspot</strong> and turn it on.</span>
+            </div>
+            <div className="hotspot-step">
+              <span className="hs-num">3</span>
+              <span>MacKeymapper will discover your Mac and connect normally.</span>
+            </div>
+          </div>
+          <div className="hotspot-warning">
+            <span>⚠️</span>
+            <span>
+              While Personal Hotspot is active, your Mac's internet traffic routes through your
+              iPhone's cellular data. Pause cloud sync or large downloads to avoid unexpected data usage.
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 /* ── Steps ── */
 const STEPS = [
   { n: '01', title: 'Install both apps', desc: 'Download MacKeymapper on your Mac and iPhone. Both apps live on your local Wi-Fi network.' },
@@ -213,6 +254,7 @@ export default function App() {
       <main>
         <Hero />
         <Features />
+        <HotspotTip />
         <HowItWorks />
         <Download />
       </main>
