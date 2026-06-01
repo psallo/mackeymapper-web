@@ -275,20 +275,77 @@ function Download() {
   )
 }
 
+/* ── Privacy Policy Modal ── */
+function PrivacyModal({ onClose }: { onClose: () => void }) {
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
+    document.addEventListener('keydown', handler)
+    document.body.style.overflow = 'hidden'
+    return () => { document.removeEventListener('keydown', handler); document.body.style.overflow = '' }
+  }, [onClose])
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-box" onClick={e => e.stopPropagation()}>
+        <div className="modal-header">
+          <h2>Privacy Policy</h2>
+          <button className="modal-close" onClick={onClose}>✕</button>
+        </div>
+        <div className="modal-body">
+          <p className="modal-date">Last updated: June 1, 2026</p>
+
+          <h3>Overview</h3>
+          <p>MacKeymapper ("we", "our", or "the app") is committed to protecting your privacy. This policy explains what information is collected and how it is used.</p>
+
+          <h3>Data We Do Not Collect</h3>
+          <p>MacKeymapper does not collect, store, or transmit any personal data to our servers. There are no accounts, no sign-ups, and no cloud storage. All communication between the iPhone app and the Mac app occurs exclusively on your local network.</p>
+
+          <h3>Local Network Communication</h3>
+          <p>MacKeymapper requires access to your local Wi-Fi network to discover and connect to the Mac companion app. This connection is direct, device-to-device, and never routed through external servers. The app requests Local Network permission on iOS solely for this purpose.</p>
+
+          <h3>Advertising (Free Version)</h3>
+          <p>The free version of MacKeymapper displays banner ads powered by Google AdMob. AdMob may collect certain device information and use cookies or similar technologies to show relevant ads. You can learn more about Google's data practices at <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">policies.google.com/privacy</a>.</p>
+
+          <h3>In-App Purchases</h3>
+          <p>Premium upgrades are processed entirely through Apple's App Store. We do not receive or store your payment information. Purchase records are managed by Apple and subject to Apple's Privacy Policy.</p>
+
+          <h3>Device Pairing</h3>
+          <p>When you pair your iPhone with your Mac, a device identifier is stored locally on your Mac to recognize trusted devices. This identifier never leaves your local network.</p>
+
+          <h3>Analytics</h3>
+          <p>We do not use any analytics SDKs or tracking tools. We have no visibility into how you use the app.</p>
+
+          <h3>Children's Privacy</h3>
+          <p>MacKeymapper is not directed at children under the age of 13 and does not knowingly collect information from children.</p>
+
+          <h3>Changes to This Policy</h3>
+          <p>We may update this Privacy Policy from time to time. Changes will be reflected on this page with an updated date.</p>
+
+          <h3>Contact</h3>
+          <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:treasure0613@gmail.com">treasure0613@gmail.com</a>.</p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 /* ── Footer ── */
 function Footer() {
+  const [showPrivacy, setShowPrivacy] = useState(false)
   return (
-    <footer className="footer">
-      <div className="footer-inner">
-        <span className="footer-brand">MacKeymapper</span>
-        <div className="footer-links">
-          <a href="#">Privacy Policy</a>
-          <a href={MAC_DOWNLOAD_URL}>GitHub</a>
-          <a href="mailto:treasure0613@gmail.com">Support</a>
+    <>
+      <footer className="footer">
+        <div className="footer-inner">
+          <span className="footer-brand">MacKeymapper</span>
+          <div className="footer-links">
+            <button className="footer-link-btn" onClick={() => setShowPrivacy(true)}>Privacy Policy</button>
+            <a href="mailto:treasure0613@gmail.com">Support</a>
+          </div>
+          <span className="footer-copy">© 2026 MacKeymapper. All rights reserved.</span>
         </div>
-        <span className="footer-copy">© 2026 MacKeymapper. All rights reserved.</span>
-      </div>
-    </footer>
+      </footer>
+      {showPrivacy && <PrivacyModal onClose={() => setShowPrivacy(false)} />}
+    </>
   )
 }
 
