@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { QRCodeSVG } from 'qrcode.react'
 import './App.css'
 
-const APP_STORE_URL = 'https://apps.apple.com/app/idREPLACE'
+const APP_STORE_URL = 'https://apps.apple.com/app/id6775396071'
 const MAC_DOWNLOAD_URL = 'https://github.com/psallo/mackeymapper/releases/latest/download/MacKeymapper.dmg'
 
 function useInView(threshold = 0.15) {
