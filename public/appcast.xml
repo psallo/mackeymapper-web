@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>MacKeymapper</title>
+    <link>https://www.mackeymapper.com/appcast.xml</link>
+    <description>MacKeymapper update feed</description>
+    <language>en</language>
+
+    <item>
+      <title>Version 1.0.1</title>
+      <sparkle:releaseNotesLink>https://github.com/psallo/mackeymapper/releases/tag/v1.0.1</sparkle:releaseNotesLink>
+      <pubDate>Tue, 10 Jun 2026 00:00:00 +0000</pubDate>
+      <enclosure
+        url="https://github.com/psallo/mackeymapper/releases/latest/download/MacKeymapper.dmg"
+        sparkle:version="2"
+        sparkle:shortVersionString="1.0.1"
+        length="2056094"
+        type="application/octet-stream"
+        sparkle:edSignature="qqauqnYrpe9z/much+xOFegnKOlw1Us3v0fWOTzcr6iiJgf9etHLZT0wHfkbczkT4hGq7rjGmhSTYy40W7Q4Aw=="
+      />
+    </item>
+
+  </channel>
+</rss>
